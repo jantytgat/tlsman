@@ -3,7 +3,7 @@ module github.com/jantytgat/tlsman
 go 1.23.3
 
 require (
-	github.com/jantytgat/go-kit v0.0.0-20241108152309-e4fe2f7b2af7
+	github.com/jantytgat/go-kit v0.0.0-20241119230401-d52efb939d77
 	github.com/spf13/cobra v1.8.1
 )
 

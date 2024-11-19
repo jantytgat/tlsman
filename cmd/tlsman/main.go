@@ -8,7 +8,8 @@ import (
 	"github.com/jantytgat/go-kit/pkg/application"
 	"github.com/jantytgat/go-kit/pkg/semver"
 	"github.com/jantytgat/go-kit/pkg/slogd"
-	"github.com/spf13/cobra"
+
+	"github.com/jantytgat/tlsman/internal/cmd"
 )
 
 var (
@@ -22,21 +23,12 @@ var (
 var (
 	version semver.Version
 	ctx     context.Context
-
-	tlsmanCmd = &cobra.Command{
-		Use:  appName,
-		RunE: tlsmanFuncE,
-	}
 )
-
-func tlsmanFuncE(cmd *cobra.Command, args []string) error {
-	return nil
-}
 
 func main() {
 	var err error
 
-	slogd.Init(slogd.LevelInfo, false)
+	slogd.Init(slogd.LevelTrace, false)
 	slogd.RegisterColoredTextHandler(os.Stderr, true)
 
 	if version, err = semver.Parse(BuildVersion); err != nil {
@@ -46,7 +38,7 @@ func main() {
 	ctx = slogd.WithContext(context.Background())
 
 	application.New(appName, appTitle, appBanner, version)
-	application.RegisterCommand(tlsmanCmd)
+	application.RegisterCommands(cmd.SubCommands, nil)
 
 	if err = application.Run(ctx); err != nil {
 		slogd.Logger().LogAttrs(ctx, slogd.LevelError, "error running application", slog.Any("error", err))
