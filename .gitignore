@@ -18,7 +18,7 @@ Thumbs.db
 .Trashes
 
 # Compilation/Build output folder
-build/bin/
+build/
 output/
 
 # Jetbrains Configuration files
