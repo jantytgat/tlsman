@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	buildVersion string
+	BuildVersion string
 
 	appName   = "tlsman"
 	appTitle  = "TLSMAN"
@@ -39,8 +39,8 @@ func main() {
 	slogd.Init(slogd.LevelInfo, false)
 	slogd.RegisterColoredTextHandler(os.Stderr, true)
 
-	if version, err = semver.Parse(buildVersion); err != nil {
-		panic(err)
+	if version, err = semver.Parse(BuildVersion); err != nil {
+		slogd.Logger().LogAttrs(ctx, slogd.LevelError, "error running application", slog.Any("error", err))
 	}
 
 	ctx = slogd.WithContext(context.Background())
