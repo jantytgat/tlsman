@@ -7,5 +7,4 @@ import (
 var SubCommands = []application.Commander{
 	acmeCmd,
 	daemonCmd,
-	pkiCmd,
 }
