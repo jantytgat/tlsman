@@ -1,0 +1,4 @@
+[submodule "external/registry"]
+	path = external/registry
+	url = https://github.com/jantytgat/go-registry
+	branch = 0.1.0-dev.20251127
