@@ -4,6 +4,6 @@ clean:
 snapshot:
 	goreleaser release --snapshot --clean
 
-run:
+run_daemon:
 	make snapshot
-	./dist/tlsman_darwin_arm64_v8.0/tlsman
+	./dist/tlsman_darwin_arm64_v8.0/tlsman daemon --log-level trace
