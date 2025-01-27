@@ -28,9 +28,9 @@ var daemonCmd = application.Command{
 }
 
 func daemonRunE(cmd *cobra.Command, args []string) error {
-	slogd.FromContext(cmd.Context()).LogAttrs(cmd.Context(), slogd.LevelInfo, cmd.CommandPath())
+	slogd.FromContext(cmd.Context()).LogAttrs(cmd.Context(), slogd.LevelInfo, "starting daemon")
 	mux := http.NewServeMux() // Create sample handler to returns 404
-	mux.Handle("/", http.RedirectHandler("https://jantytgat.com", 302))
+	mux.Handle("/", http.RedirectHandler("https://jantytgat.com", http.StatusTemporaryRedirect))
 
 	srv := application.NewSocketHttpServer("tlsman.socket", mux)
 	srvCtx, srvCancel := context.WithCancel(cmd.Context())
@@ -45,5 +45,6 @@ func daemonRunE(cmd *cobra.Command, args []string) error {
 	}(srvCtx, &wg)
 
 	wg.Wait()
+	slogd.FromContext(cmd.Context()).LogAttrs(cmd.Context(), slogd.LevelInfo, "stopping daemon")
 	return nil
 }
