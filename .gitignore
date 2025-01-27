@@ -33,6 +33,8 @@ output/
 # - Dependency directories
 vendor/
 
+cmd/tlsman/assets
+
 # - Go workspace file
 go.work# Added by goreleaser init:
 dist/
