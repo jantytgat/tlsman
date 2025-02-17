@@ -4,7 +4,7 @@ go 1.23.3
 
 require (
 	github.com/jantytgat/go-kit v0.1.3
-	github.com/spf13/cobra v1.8.1
+	github.com/spf13/cobra v1.9.1
 )
 
 require (
