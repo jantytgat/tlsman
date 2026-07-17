@@ -1,6 +1,6 @@
 module github.com/jantytgat/tlsman
 
-go 1.23.3
+go 1.24.2
 
 require (
 	github.com/jantytgat/go-kit v0.1.3
@@ -8,9 +8,6 @@ require (
 )
 
 require (
-	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
-	github.com/charmbracelet/lipgloss v1.0.0 // indirect
-	github.com/charmbracelet/x/ansi v0.7.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
